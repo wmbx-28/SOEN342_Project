@@ -86,7 +86,7 @@
             <mxPoint x="620" y="360" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="x8fpmFxiWEw-7DqTtAZY-52" connectable="0" parent="x8fpmFxiWEw-7DqTtAZY-51" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="confirmation" vertex="1">
+        <mxCell id="x8fpmFxiWEw-7DqTtAZY-52" connectable="0" parent="x8fpmFxiWEw-7DqTtAZY-51" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="update parent task summary" vertex="1">
           <mxGeometry relative="1" x="-0.1878" y="3" as="geometry">
             <mxPoint x="29" y="-7" as="offset" />
           </mxGeometry>
