@@ -118,8 +118,8 @@ public class Task {
         return subtasks;
     }
 
-    public void setSubtasks(List<Task> subtasks) {
-        this.subtasks = subtasks;
+    public void addSubtasks(Task subtask) {
+        this.subtasks.add(subtask);
     }
 
     public RecurrencePattern getRecurrencePattern() {
