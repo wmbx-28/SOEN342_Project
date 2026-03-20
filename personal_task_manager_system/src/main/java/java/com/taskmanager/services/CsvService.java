@@ -1,10 +1,14 @@
 package java.com.taskmanager.services;
 
 import java.com.taskmanager.db.InMemoryRepository;
-import java.com.taskmanager.models.Task;
+import java.com.taskmanager.models.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
+import java.time.LocalDate;
 import java.util.List;
+import java.util.UUID;
 
 public class CsvService {
     private final InMemoryRepository repository;
@@ -43,6 +47,48 @@ public class CsvService {
                         collabCat
                 );
                 writer.println(line);
+            }
+        }
+    }
+
+    public void importFromCsv(String filePath) throws Exception {
+        repository.clearAll(); // System starts fresh for requirements.
+
+        try(BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            String line = br.readLine(); // Skip the header
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",", -1);
+                if (values.length < 10) continue;
+
+                Task task = new Task(UUID.randomUUID().toString(), values[0]);
+                task.setDescription(values[1]);
+                task.setStatus(TaskStatus.valueOf(values[3].toUpperCase()));
+                task.setPriority(TaskPriority.valueOf(values[4].toUpperCase()));
+                if (!values[5].isEmpty()) task.setDueDate(LocalDate.parse(values[5]));
+
+                // Project creation
+                if (!values[6].isEmpty()) {
+                    Project p = repository.getOrCreateProject(values[6], values[7]);
+                    task.setProject(p);
+                }
+
+                // Collaborator creation
+                if(!values[8].isEmpty() && !values[9].isEmpty()) {
+                    CollaboratorCategory cat = CollaboratorCategory.valueOf(values[9].toUpperCase());
+                    Collaborator c = repository.getOrCreateCollaborator(values[8], cat);
+
+                    // Link collaborator if there's a subtask
+                    if (values[2].equalsIgnoreCase("No")) {
+                        repository.saveTask(task);
+                        taskService.assignCollaborator(task, c);
+                        continue;
+                    } else {
+                        task.setCollaborator(c);
+                    }
+
+                }
+
+                repository.saveTask(task);
             }
         }
     }
