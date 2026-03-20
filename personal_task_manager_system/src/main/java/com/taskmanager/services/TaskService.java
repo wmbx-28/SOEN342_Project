@@ -1,9 +1,9 @@
-package java.com.taskmanager.services;
+package com.taskmanager.services;
 
-import java.com.taskmanager.db.InMemoryRepository;
-import java.com.taskmanager.models.Collaborator;
-import java.com.taskmanager.models.Task;
-import java.com.taskmanager.models.TaskStatus;
+import com.taskmanager.db.InMemoryRepository;
+import com.taskmanager.models.Collaborator;
+import com.taskmanager.models.Task;
+import com.taskmanager.models.TaskStatus;
 import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.List;

@@ -1,4 +1,4 @@
-package java.com.taskmanager.models;
+package com.taskmanager.models;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,9 +1,9 @@
-package java.com.taskmanager.db;
+package com.taskmanager.db;
 
-import java.com.taskmanager.models.Collaborator;
-import java.com.taskmanager.models.CollaboratorCategory;
-import java.com.taskmanager.models.Project;
-import java.com.taskmanager.models.Task;
+import com.taskmanager.models.Collaborator;
+import com.taskmanager.models.CollaboratorCategory;
+import com.taskmanager.models.Project;
+import com.taskmanager.models.Task;
 import java.util.*;
 
 public class InMemoryRepository {

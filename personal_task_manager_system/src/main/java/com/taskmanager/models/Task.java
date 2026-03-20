@@ -1,4 +1,4 @@
-package java.com.taskmanager.models;
+package com.taskmanager.models;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

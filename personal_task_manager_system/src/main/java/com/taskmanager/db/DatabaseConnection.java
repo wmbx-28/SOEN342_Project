@@ -1,4 +1,4 @@
-package java.com.taskmanager.db;
+package com.taskmanager.db;
 
 public class DatabaseConnection {
 }

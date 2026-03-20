@@ -1,7 +1,9 @@
-package java.com.taskmanager.services;
+package com.taskmanager.services;
 
-import java.com.taskmanager.db.InMemoryRepository;
-import java.com.taskmanager.models.*;
+import com.taskmanager.db.InMemoryRepository;
+import com.taskmanager.models.*;
+
+import com.taskmanager.models.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;

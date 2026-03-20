@@ -1,4 +1,4 @@
-package java.com.taskmanager.models;
+package com.taskmanager.models;
 
 public enum TaskStatus {
     OPEN,

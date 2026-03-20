@@ -1,4 +1,4 @@
-package java.com.taskmanager.models;
+package com.taskmanager.models;
 
 public class Collaborator {
     private String id; // UUID
