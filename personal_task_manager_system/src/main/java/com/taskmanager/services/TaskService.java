@@ -19,23 +19,26 @@ public class TaskService {
 
     // RULE: Linking a task to a collaborator creates a subtask
     // RULE: Enforce limits on open tasks based on category
-    public void assignCollaborator(Task parentsTask, Collaborator collaborator) throws Exception {
-        if (!collaborator.canTakeNewTask()) {
-            throw new Exception("Error: Collaborator " + collaborator.getName() + " has reached their limit of " + collaborator.getCategory().getMaxOpenTasks() + " open tasks.");
+    public void assignCollaborator(Task parentTask, Collaborator c) throws Exception {
+        if (!c.canTakeNewTask()) {
+            throw new Exception("Error: Collaborator " + c.getName() + " has reached their limit of " + c.getCategory().getMaxOpenTasks() + " open tasks.");
         }
 
         // Create subtask
-        Task subtask = new Task(UUID.randomUUID().toString(), parentsTask.getTaskName() + " - " + collaborator.getName());
-        subtask.setCollaborator(collaborator);
-        subtask.setProject(parentsTask.getProject());
-        subtask.setDueDate(parentsTask.getDueDate());
+        Task subtask = new Task(UUID.randomUUID().toString(), parentTask.getTaskName() + " - " + c.getName());
+
+        subtask.setParentTask(parentTask);
+
+        subtask.setCollaborator(c);
+        subtask.setProject(parentTask.getProject());
+        subtask.setDueDate(parentTask.getDueDate());
 
         // Link and save it
-        parentsTask.addSubtasks(subtask);
+        parentTask.addSubtask(subtask);
         repository.saveTask(subtask);
 
         // Update collaborator active load
-        collaborator.setCurrentOpenTaskCount(collaborator.getCurrentOpenTaskCount() + 1);
+        c.setCurrentOpenTaskCount(c.getCurrentOpenTaskCount() + 1);
     }
 
     // RULE: Search tasks by criteria. If none, return all OPEN tasks sorted by due date
@@ -44,7 +47,7 @@ public class TaskService {
                 .filter(t -> nameMatch == null || t.getTaskName().toLowerCase().contains(nameMatch.toLowerCase()))
                 .filter(t -> status == null || t.getStatus() == status)
                 .filter(t -> fromDate == null || (t.getDueDate() != null && !t.getDueDate().isBefore(fromDate)))
-                .filter(t -> toDate == null || (t.getDueDate() != null && !t.getDueDate().isAfter(fromDate)))
+                .filter(t -> toDate == null || (t.getDueDate() != null && !t.getDueDate().isAfter(toDate)))
                 .sorted(Comparator.comparing(Task::getDueDate, Comparator.nullsLast(Comparator.naturalOrder())))
                 .collect(Collectors.toList());
     }

@@ -1,0 +1,8 @@
+TaskName,Description,Subtask,Status,Priority,DueDate,ProjectName,Project Description,Collaborator,CollaboratorCategory
+Setup Environment,Install Java and Maven,No,COMPLETED,HIGH,2026-03-20,,,
+Design Database,Map out the PostgreSQL schema,No,OPEN,HIGH,2026-03-25,Drop-It Refactor,Migrate CRUD operations,,
+Write API Controllers,Implement backend endpoints,No,OPEN,MEDIUM,2026-03-27,Drop-It Refactor,Migrate CRUD operations,Alice,SENIOR
+Configure Server,Deploy the application to AWS,No,OPEN,HIGH,2026-03-28,Drop-It Refactor,Migrate CRUD operations,Alice,SENIOR
+Fix UI Bug,Fix button misalignment on login page,No,OPEN,LOW,2026-03-24,Tax Prep Site,Accountant document portal,Bob,JUNIOR
+Write Unit Tests,Add JUnit coverage for services,No,OPEN,MEDIUM,2026-03-29,Tax Prep Site,Accountant document portal,Bob,JUNIOR
+Create User Manual,Draft documentation for end users,No,OPEN,LOW,2026-04-05,,,Charlie,INTERMEDIATE

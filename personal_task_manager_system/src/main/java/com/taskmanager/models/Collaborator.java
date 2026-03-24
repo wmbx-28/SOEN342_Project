@@ -7,7 +7,7 @@ public class Collaborator {
 
     private int currentOpenTaskCount; // Initially 0
 
-    public Collaborator(String name, String id, CollaboratorCategory category) {
+    public Collaborator(String id, String name, CollaboratorCategory category) {
         this.name = name;
         this.id = id;
         this.category = category;

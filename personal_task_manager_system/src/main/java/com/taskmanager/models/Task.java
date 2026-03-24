@@ -118,7 +118,7 @@ public class Task {
         return subtasks;
     }
 
-    public void addSubtasks(Task subtask) {
+    public void addSubtask(Task subtask) {
         this.subtasks.add(subtask);
     }
 
