@@ -1,0 +1,94 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36 Edg/146.0.0.0" version="29.6.5">
+  <diagram name="Page-1" id="QVlhK8HAZvRyAtObj06O">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="privp-ss1vDUr4rzuNQn-1" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value=":&lt;u&gt;User&lt;/u&gt;" vertex="1">
+          <mxGeometry height="80" width="40" x="80" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="privp-ss1vDUr4rzuNQn-2" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;rounded=0;" target="privp-ss1vDUr4rzuNQn-1" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="100" y="560" as="sourcePoint" />
+            <mxPoint x="440" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="privp-ss1vDUr4rzuNQn-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value=":&lt;u&gt;System&lt;/u&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="560" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="privp-ss1vDUr4rzuNQn-4" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;rounded=0;" target="privp-ss1vDUr4rzuNQn-3" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="620" y="560" as="sourcePoint" />
+            <mxPoint x="630" y="190" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="privp-ss1vDUr4rzuNQn-5" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="100" y="200" as="sourcePoint" />
+            <mxPoint x="620" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="privp-ss1vDUr4rzuNQn-6" connectable="0" parent="privp-ss1vDUr4rzuNQn-5" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="initiateCollaboratorAssignment(taskId)" vertex="1">
+          <mxGeometry relative="1" x="-0.0276" as="geometry">
+            <mxPoint x="-12" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="privp-ss1vDUr4rzuNQn-7" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;rounded=0;startArrow=blockThin;startFill=1;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="100" y="240" as="sourcePoint" />
+            <mxPoint x="620" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="privp-ss1vDUr4rzuNQn-8" connectable="0" parent="privp-ss1vDUr4rzuNQn-7" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="prompt for collaborator name and category" vertex="1">
+          <mxGeometry relative="1" x="-0.1878" y="3" as="geometry">
+            <mxPoint x="29" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="privp-ss1vDUr4rzuNQn-10" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="100" y="280" as="sourcePoint" />
+            <mxPoint x="620" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="privp-ss1vDUr4rzuNQn-11" connectable="0" parent="privp-ss1vDUr4rzuNQn-10" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="enterCollaboratorDetails(collaboratorName, category)" vertex="1">
+          <mxGeometry relative="1" x="-0.0276" as="geometry">
+            <mxPoint x="-12" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="privp-ss1vDUr4rzuNQn-12" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;rounded=0;startArrow=blockThin;startFill=1;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="100" y="320" as="sourcePoint" />
+            <mxPoint x="620" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="privp-ss1vDUr4rzuNQn-13" connectable="0" parent="privp-ss1vDUr4rzuNQn-12" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="collaborator details verified" vertex="1">
+          <mxGeometry relative="1" x="-0.1878" y="3" as="geometry">
+            <mxPoint x="29" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="privp-ss1vDUr4rzuNQn-14" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="100" y="360" as="sourcePoint" />
+            <mxPoint x="620" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="privp-ss1vDUr4rzuNQn-15" connectable="0" parent="privp-ss1vDUr4rzuNQn-14" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="endCollaboratorAssignment()" vertex="1">
+          <mxGeometry relative="1" x="-0.0276" as="geometry">
+            <mxPoint x="-12" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="privp-ss1vDUr4rzuNQn-16" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;rounded=0;startArrow=blockThin;startFill=1;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="100" y="400" as="sourcePoint" />
+            <mxPoint x="620" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="privp-ss1vDUr4rzuNQn-17" connectable="0" parent="privp-ss1vDUr4rzuNQn-16" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="confirmation (new subtask automatically created)" vertex="1">
+          <mxGeometry relative="1" x="-0.1878" y="3" as="geometry">
+            <mxPoint x="29" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,138 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36 Edg/146.0.0.0" version="29.6.5">
+  <diagram name="Page-1" id="NAFF-_ycykg2CPuKi0Q9">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="vJemmPyE0WYn9kk0TAID-1" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value=":&lt;u&gt;User&lt;/u&gt;" vertex="1">
+          <mxGeometry height="80" width="40" x="80" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="vJemmPyE0WYn9kk0TAID-2" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;rounded=0;" target="vJemmPyE0WYn9kk0TAID-1" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="100" y="600" as="sourcePoint" />
+            <mxPoint x="440" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vJemmPyE0WYn9kk0TAID-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value=":&lt;u&gt;System&lt;/u&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="560" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vJemmPyE0WYn9kk0TAID-4" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;rounded=0;" target="vJemmPyE0WYn9kk0TAID-3" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="620" y="600" as="sourcePoint" />
+            <mxPoint x="630" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vJemmPyE0WYn9kk0TAID-5" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="100" y="160" as="sourcePoint" />
+            <mxPoint x="620" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vJemmPyE0WYn9kk0TAID-6" connectable="0" parent="vJemmPyE0WYn9kk0TAID-5" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="initiateTaskCreation()" vertex="1">
+          <mxGeometry relative="1" x="-0.0276" as="geometry">
+            <mxPoint x="-12" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vJemmPyE0WYn9kk0TAID-7" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;rounded=0;startArrow=blockThin;startFill=1;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="100" y="200" as="sourcePoint" />
+            <mxPoint x="620" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vJemmPyE0WYn9kk0TAID-8" connectable="0" parent="vJemmPyE0WYn9kk0TAID-7" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="prompt for core task details" vertex="1">
+          <mxGeometry relative="1" x="-0.1878" y="3" as="geometry">
+            <mxPoint x="29" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vJemmPyE0WYn9kk0TAID-10" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="100" y="240" as="sourcePoint" />
+            <mxPoint x="620" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vJemmPyE0WYn9kk0TAID-11" connectable="0" parent="vJemmPyE0WYn9kk0TAID-10" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="enterTaskDetails(title, description, priority)" vertex="1">
+          <mxGeometry relative="1" x="-0.0276" as="geometry">
+            <mxPoint x="-12" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vJemmPyE0WYn9kk0TAID-12" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;rounded=0;startArrow=blockThin;startFill=1;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="100" y="360" as="sourcePoint" />
+            <mxPoint x="620" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vJemmPyE0WYn9kk0TAID-13" connectable="0" parent="vJemmPyE0WYn9kk0TAID-12" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="prompt for optional recurrence pattern" vertex="1">
+          <mxGeometry relative="1" x="-0.1878" y="3" as="geometry">
+            <mxPoint x="29" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vJemmPyE0WYn9kk0TAID-14" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="100" y="400" as="sourcePoint" />
+            <mxPoint x="620" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vJemmPyE0WYn9kk0TAID-15" connectable="0" parent="vJemmPyE0WYn9kk0TAID-14" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="addRecurrence(&quot;DAILY&quot;, &quot;2026-03-25&quot;, &quot;2026-03-20&quot;)" vertex="1">
+          <mxGeometry relative="1" x="-0.0276" as="geometry">
+            <mxPoint x="-12" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vJemmPyE0WYn9kk0TAID-16" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;rounded=0;startArrow=blockThin;startFill=1;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="100" y="440" as="sourcePoint" />
+            <mxPoint x="620" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vJemmPyE0WYn9kk0TAID-17" connectable="0" parent="vJemmPyE0WYn9kk0TAID-16" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="error: end date cannot be before start date" vertex="1">
+          <mxGeometry relative="1" x="-0.1878" y="3" as="geometry">
+            <mxPoint x="29" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vJemmPyE0WYn9kk0TAID-18" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;rounded=0;startArrow=blockThin;startFill=1;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="100" y="280" as="sourcePoint" />
+            <mxPoint x="620" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vJemmPyE0WYn9kk0TAID-19" connectable="0" parent="vJemmPyE0WYn9kk0TAID-18" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="prompt for optional due date" vertex="1">
+          <mxGeometry relative="1" x="-0.1878" y="3" as="geometry">
+            <mxPoint x="29" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vJemmPyE0WYn9kk0TAID-25" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="100" y="480" as="sourcePoint" />
+            <mxPoint x="620" y="480" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vJemmPyE0WYn9kk0TAID-26" connectable="0" parent="vJemmPyE0WYn9kk0TAID-25" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="endTaskCreation()" vertex="1">
+          <mxGeometry relative="1" x="-0.0276" as="geometry">
+            <mxPoint x="-12" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vJemmPyE0WYn9kk0TAID-27" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;rounded=0;startArrow=blockThin;startFill=1;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="100" y="520" as="sourcePoint" />
+            <mxPoint x="620" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vJemmPyE0WYn9kk0TAID-28" connectable="0" parent="vJemmPyE0WYn9kk0TAID-27" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="task creation aborted" vertex="1">
+          <mxGeometry relative="1" x="-0.1878" y="3" as="geometry">
+            <mxPoint x="29" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vJemmPyE0WYn9kk0TAID-30" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="100" y="320" as="sourcePoint" />
+            <mxPoint x="620" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vJemmPyE0WYn9kk0TAID-31" connectable="0" parent="vJemmPyE0WYn9kk0TAID-30" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="(user skips due date)" vertex="1">
+          <mxGeometry relative="1" x="-0.0276" as="geometry">
+            <mxPoint x="-12" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

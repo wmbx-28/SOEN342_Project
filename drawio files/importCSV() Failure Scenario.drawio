@@ -1,0 +1,94 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36 Edg/146.0.0.0" version="29.6.5">
+  <diagram name="Page-1" id="XXgFjRmIFlKf_qbfFtkI">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="q4BHI44m6EkApjtTJnjD-17" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value=":&lt;u&gt;User&lt;/u&gt;" vertex="1">
+          <mxGeometry height="80" width="40" x="80" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="q4BHI44m6EkApjtTJnjD-18" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;rounded=0;" target="q4BHI44m6EkApjtTJnjD-17" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="100" y="600" as="sourcePoint" />
+            <mxPoint x="440" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q4BHI44m6EkApjtTJnjD-19" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value=":&lt;u&gt;System&lt;/u&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="560" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="q4BHI44m6EkApjtTJnjD-20" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;rounded=0;" target="q4BHI44m6EkApjtTJnjD-19" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="620" y="600" as="sourcePoint" />
+            <mxPoint x="630" y="230" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q4BHI44m6EkApjtTJnjD-21" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="100" y="240" as="sourcePoint" />
+            <mxPoint x="620" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q4BHI44m6EkApjtTJnjD-22" connectable="0" parent="q4BHI44m6EkApjtTJnjD-21" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="initiateImportCSV()" vertex="1">
+          <mxGeometry relative="1" x="-0.0276" as="geometry">
+            <mxPoint x="-12" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q4BHI44m6EkApjtTJnjD-23" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;rounded=0;startArrow=blockThin;startFill=1;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="100" y="280" as="sourcePoint" />
+            <mxPoint x="620" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q4BHI44m6EkApjtTJnjD-24" connectable="0" parent="q4BHI44m6EkApjtTJnjD-23" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="prompt for file path" vertex="1">
+          <mxGeometry relative="1" x="-0.1878" y="3" as="geometry">
+            <mxPoint x="29" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q4BHI44m6EkApjtTJnjD-25" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="100" y="320" as="sourcePoint" />
+            <mxPoint x="620" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q4BHI44m6EkApjtTJnjD-26" connectable="0" parent="q4BHI44m6EkApjtTJnjD-25" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="enterFilePath(&quot;invalid_file_path.csv&quot;)" vertex="1">
+          <mxGeometry relative="1" x="-0.0276" as="geometry">
+            <mxPoint x="-12" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q4BHI44m6EkApjtTJnjD-27" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;rounded=0;startArrow=blockThin;startFill=1;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="100" y="360" as="sourcePoint" />
+            <mxPoint x="620" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q4BHI44m6EkApjtTJnjD-28" connectable="0" parent="q4BHI44m6EkApjtTJnjD-27" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="error: file not found or invalid format" vertex="1">
+          <mxGeometry relative="1" x="-0.1878" y="3" as="geometry">
+            <mxPoint x="29" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q4BHI44m6EkApjtTJnjD-29" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="100" y="400" as="sourcePoint" />
+            <mxPoint x="620" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q4BHI44m6EkApjtTJnjD-30" connectable="0" parent="q4BHI44m6EkApjtTJnjD-29" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="endImportCSV()" vertex="1">
+          <mxGeometry relative="1" x="-0.0276" as="geometry">
+            <mxPoint x="-12" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q4BHI44m6EkApjtTJnjD-31" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;rounded=0;startArrow=blockThin;startFill=1;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="100" y="440" as="sourcePoint" />
+            <mxPoint x="620" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q4BHI44m6EkApjtTJnjD-32" connectable="0" parent="q4BHI44m6EkApjtTJnjD-31" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="import aborted, system data unchanged" vertex="1">
+          <mxGeometry relative="1" x="-0.1878" y="3" as="geometry">
+            <mxPoint x="29" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
