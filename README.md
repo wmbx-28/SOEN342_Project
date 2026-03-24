@@ -26,18 +26,20 @@ The PoC is a terminal-based Java application managed via Maven. It demonstrates 
 1.  Navigate to the PoC directory:
 
     ```bash
-    cd personal_task_manager
+    cd personal_task_manager_system
     ```
 
     Compile the project using Maven:
-    Bash
 
-        mvn clean compile
+    ```bash
+     mvn clean compile
+    ```
 
-        Execute the main application:
-        Bash
+    Execute the main application:
 
-        mvn exec:java -Dexec.mainClass="com.taskmanager.Main"
+    ```bash
+    mvn exec:java "-Dexec.mainClass=com.taskmanager.Main"
+    ```
 
 Testing the System:
 
