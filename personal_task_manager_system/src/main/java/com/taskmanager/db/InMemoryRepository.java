@@ -25,7 +25,19 @@ public class InMemoryRepository {
     }
 
     // Tasks
-    public void saveTask(Task task){
+    // Tasks
+    public void saveTask(Task task) throws Exception {
+        // RULE ENFORCEMENT: Unique combination of Task Name + Due Date
+        boolean exists = allTasks.stream().anyMatch(t ->
+                t.getTaskName().equalsIgnoreCase(task.getTaskName()) &&
+                        t.getDueDate() != null && task.getDueDate() != null &&
+                        t.getDueDate().equals(task.getDueDate())
+        );
+
+        if (exists) {
+            throw new Exception("Constraint Violation: A task named '" + task.getTaskName() + "' on " + task.getDueDate() + " already exists.");
+        }
+
         allTasks.add(task);
     }
 
