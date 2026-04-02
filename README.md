@@ -43,4 +43,4 @@ The PoC is a terminal-based Java application managed via Maven. It demonstrates 
 
 Testing the System:
 
-When prompted by the CLI to import tasks, you can use the `../sample_tasks.csv` file located in the root directory to instantly populate the system with dummy data.
+When prompted by the CLI to import tasks, you can use the `plaintext ../sample_tasks.csv` file located in the root directory to instantly populate the system with dummy data.
