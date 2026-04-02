@@ -41,11 +41,16 @@ public class TaskService {
         c.setCurrentOpenTaskCount(c.getCurrentOpenTaskCount() + 1);
     }
 
-    // RULE: Search tasks by criteria. If none, return all OPEN tasks sorted by due date
+    // RULE: Search tasks by criteria, if none return all OPEN tasks sorted by due date
     public List<Task> searchTasks(String nameMatch, TaskStatus status, LocalDate fromDate, LocalDate toDate) {
+        boolean noCriteriaSpecified = (nameMatch == null && status == null && fromDate == null && toDate == null);
+
+        // If no criteria, force the filter to look for OPEN tasks. Otherwise, use what the user provided.
+        TaskStatus effectiveStatus = noCriteriaSpecified ? TaskStatus.OPEN : status;
+
         return repository.getAllTasks().stream()
                 .filter(t -> nameMatch == null || t.getTaskName().toLowerCase().contains(nameMatch.toLowerCase()))
-                .filter(t -> status == null || t.getStatus() == status)
+                .filter(t -> effectiveStatus == null || t.getStatus() == effectiveStatus)
                 .filter(t -> fromDate == null || (t.getDueDate() != null && !t.getDueDate().isBefore(fromDate)))
                 .filter(t -> toDate == null || (t.getDueDate() != null && !t.getDueDate().isAfter(toDate)))
                 .sorted(Comparator.comparing(Task::getDueDate, Comparator.nullsLast(Comparator.naturalOrder())))
