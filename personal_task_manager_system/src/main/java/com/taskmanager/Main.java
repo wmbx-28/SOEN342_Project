@@ -2,6 +2,7 @@ package com.taskmanager;
 
 import com.taskmanager.db.InMemoryRepository;
 import com.taskmanager.models.Collaborator;
+import com.taskmanager.models.Project;
 import com.taskmanager.models.Task;
 import com.taskmanager.models.TaskStatus;
 import com.taskmanager.services.CsvService;
@@ -39,12 +40,15 @@ public class Main {
                         handleExport(scanner, csvService);
                         break;
                     case "3":
-                        handleSearchAndView(scanner, taskService);
+                        handleICalExport(scanner, taskService);
                         break;
                     case "4":
-                        handleListOverloadedCollaborators(taskService);
+                        handleSearchAndView(scanner, taskService);
                         break;
                     case "5":
+                        handleListOverloadedCollaborators(taskService);
+                        break;
+                    case "6":
                         System.out.println("Exiting system. Goodbye!");
                         running = false;
                         break;
@@ -61,9 +65,10 @@ public class Main {
         System.out.println("\n-== Main Menu ==-");
         System.out.println("1. Import Task from CSV");
         System.out.println("2. Export Task to CSV");
-        System.out.println("3. Search and View Tasks");
-        System.out.println("4. List Overloaded Collaborators");
-        System.out.println("5. Exit");
+        System.out.println("3. Export to iCal");
+        System.out.println("4. Search and View Tasks");
+        System.out.println("5. List Overloaded Collaborators");
+        System.out.println("6. Exit");
     }
 
     private static void handleImport(Scanner scanner, CsvService csvService) throws Exception {
@@ -80,13 +85,75 @@ public class Main {
         System.out.println("Successfully exported database to " + path);
     }
 
+    private static void handleICalExport(Scanner scanner, TaskService taskService) throws Exception {
+        System.out.println("\n-== Export to iCal ==-");
+        System.out.println("1. Export single task");
+        System.out.println("2. Export project tasks");
+        System.out.println("3. Export filtered task list");
+        System.out.println("Choose export mode: ");
+        String choice = scanner.nextLine();
+
+        System.out.println("Enter the destination path for the .ics file (e.g. data/tasks.ics): ");
+        String filePath = scanner.nextLine();
+
+        switch (choice) {
+            case "1":
+                System.out.println("Enter the exact task name: ");
+                String taskName = scanner.nextLine();
+                Task selectedTask = taskService.findTopLevelTaskByName(taskName);
+                taskService.exportSingleTask(selectedTask, filePath);
+                System.out.println("Successfully exported matching task(s) to " + filePath);
+                break;
+            case "2":
+                System.out.println("Enter the exact project name: ");
+                String projectName = scanner.nextLine();
+                Project selectedProject = taskService.findProjectByName(projectName);
+                taskService.exportProjectTasks(selectedProject, filePath);
+                System.out.println("Successfully exported project task(s) to " + filePath);
+                break;
+            case "3":
+                SearchCriteria criteria = promptForSearchCriteria(scanner);
+                List<Task> filteredTasks = taskService.searchTasks(criteria.nameMatch(), criteria.status(), criteria.fromDate(), criteria.toDate());
+                taskService.exportFilteredList(filteredTasks, filePath);
+                System.out.println("Successfully exported filtered task(s) to " + filePath);
+                break;
+            default:
+                System.out.println("Invalid iCal export choice.");
+        }
+    }
+
     private static void handleSearchAndView(Scanner scanner, TaskService taskService) {
         System.out.println("\n-== Search Task ==-");
         System.out.println("Press enter to skip a criteria");
+        SearchCriteria criteria = promptForSearchCriteria(scanner);
 
+        // Search
+        List<Task> results = taskService.searchTasks(criteria.nameMatch(), criteria.status(), criteria.fromDate(), criteria.toDate());
+
+        // Show results
+        System.out.println("\n-== Results Found: " + results.size() + " ==-");
+        if (results.isEmpty()) {
+            System.out.println("No task match your criteria.");
+        } else {
+            // Print in table form
+            System.out.printf("%-30s | %-10s | %-10s | %-10s | %-15s\n", "Task Name", "Status", "Due Date", "Is Subtask", "Collaborator");
+            System.out.println("-".repeat(85));
+            for (Task t: results) {
+                String isSub = t.getParentTask() != null ? "Yes" : "No";
+                String collab = t.getCollaborator() != null ? t.getCollaborator().getName() : "None";
+                String dueDate = t.getDueDate() != null ? t.getDueDate().toString() : "None";
+
+                System.out.printf("%-30s | %-10s | %-10s | %-10s | %-15s\n", truncate(t.getTaskName(), 30), t.getStatus(), dueDate, isSub, collab);
+            }
+        }
+    }
+
+    private static SearchCriteria promptForSearchCriteria(Scanner scanner) {
         System.out.println("Name match: ");
         String nameMatch = scanner.nextLine();
-        if (nameMatch.trim().isEmpty()) nameMatch = null;
+        if (nameMatch.trim().isEmpty()) {
+            nameMatch = null;
+        }
 
         System.out.println("Status (OPEN, COMPLETED, CANCELLED): ");
         String statusStr = scanner.nextLine().toUpperCase();
@@ -105,25 +172,7 @@ public class Main {
         System.out.println("To Date (YYYY-MM-DD): ");
         LocalDate toDate = parseDateSilently(scanner.nextLine());
 
-        // Search
-        List<Task> results = taskService.searchTasks(nameMatch, status, fromDate, toDate);
-
-        // Show results
-        System.out.println("\n-== Results Found: " + results.size() + " ==-");
-        if (results.isEmpty()) {
-            System.out.println("No task match your criteria.");
-        } else {
-            // Print in table form
-            System.out.printf("%-30s | %-10s | %-10s | %-10s | %-15s\n", "Task Name", "Status", "Due Date", "Is Subtask", "Collaborator");
-            System.out.println("-".repeat(85));
-            for (Task t: results) {
-                String isSub = t.getParentTask() != null ? "Yes" : "No";
-                String collab = t.getCollaborator() != null ? t.getCollaborator().getName() : "None";
-                String dueDate = t.getDueDate() != null ? t.getDueDate().toString() : "None";
-
-                System.out.printf("%-30s | %-10s | %-10s | %-10s | %-15s\n", truncate(t.getTaskName(), 30), t.getStatus(), dueDate, isSub, collab);
-            }
-        }
+        return new SearchCriteria(nameMatch, status, fromDate, toDate);
     }
 
     private static void handleListOverloadedCollaborators(TaskService taskService) {
@@ -168,5 +217,8 @@ public class Main {
         if (str == null) return "";
         if (str.length() <= length) return str;
         return str.substring(0, length - 3) + "...";
+    }
+
+    private record SearchCriteria(String nameMatch, TaskStatus status, LocalDate fromDate, LocalDate toDate) {
     }
 }
