@@ -14,7 +14,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         // Initialize system
-        InMemoryRepository repository = new InMemoryRepository();
+        InMemoryRepository repository = new InMemoryRepository("data/task-manager-data.json");
         TaskService taskService = new TaskService(repository);
         CsvService csvService = new CsvService(repository, taskService);
         Scanner scanner = new Scanner(System.in);

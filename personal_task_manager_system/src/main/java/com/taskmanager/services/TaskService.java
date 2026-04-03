@@ -33,12 +33,10 @@ public class TaskService {
         subtask.setProject(parentTask.getProject());
         subtask.setDueDate(parentTask.getDueDate());
 
-        // Link and save it
+        // Update the in-memory graph before saving so persistence captures all changes.
         parentTask.addSubtask(subtask);
-        repository.saveTask(subtask);
-
-        // Update collaborator active load
         c.setCurrentOpenTaskCount(c.getCurrentOpenTaskCount() + 1);
+        repository.saveTask(subtask);
     }
 
     // RULE: Search tasks by criteria, if none return all OPEN tasks sorted by due date
