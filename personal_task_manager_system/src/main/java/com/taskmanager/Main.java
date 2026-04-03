@@ -1,6 +1,7 @@
 package com.taskmanager;
 
 import com.taskmanager.db.InMemoryRepository;
+import com.taskmanager.models.Collaborator;
 import com.taskmanager.models.Task;
 import com.taskmanager.models.TaskStatus;
 import com.taskmanager.services.CsvService;
@@ -41,6 +42,9 @@ public class Main {
                         handleSearchAndView(scanner, taskService);
                         break;
                     case "4":
+                        handleListOverloadedCollaborators(taskService);
+                        break;
+                    case "5":
                         System.out.println("Exiting system. Goodbye!");
                         running = false;
                         break;
@@ -58,7 +62,8 @@ public class Main {
         System.out.println("1. Import Task from CSV");
         System.out.println("2. Export Task to CSV");
         System.out.println("3. Search and View Tasks");
-        System.out.println("4. Exit");
+        System.out.println("4. List Overloaded Collaborators");
+        System.out.println("5. Exit");
     }
 
     private static void handleImport(Scanner scanner, CsvService csvService) throws Exception {
@@ -118,6 +123,32 @@ public class Main {
 
                 System.out.printf("%-30s | %-10s | %-10s | %-10s | %-15s\n", truncate(t.getTaskName(), 30), t.getStatus(), dueDate, isSub, collab);
             }
+        }
+    }
+
+    private static void handleListOverloadedCollaborators(TaskService taskService) {
+        List<Collaborator> overloadedCollaborators = taskService.listOverloadedCollaborators();
+
+        System.out.println("\n-== Overloaded Collaborators ==-");
+        if (overloadedCollaborators.isEmpty()) {
+            System.out.println("No overloaded collaborators found.");
+            return;
+        }
+
+        System.out.printf("%-20s | %-15s | %-10s | %-10s | %-12s\n", "Name", "Category", "Open Tasks", "Limit", "Overload By");
+        System.out.println("-".repeat(78));
+
+        for (Collaborator collaborator : overloadedCollaborators) {
+            int openTasks = collaborator.getCurrentOpenTaskCount();
+            int limit = collaborator.getCategory().getMaxOpenTasks();
+            int overloadBy = openTasks - limit;
+
+            System.out.printf("%-20s | %-15s | %-10d | %-10d | %-12d\n",
+                    collaborator.getName(),
+                    collaborator.getCategory(),
+                    openTasks,
+                    limit,
+                    overloadBy);
         }
     }
 

@@ -20,7 +20,8 @@ public class TaskService {
     // RULE: Linking a task to a collaborator creates a subtask
     // RULE: Enforce limits on open tasks based on category
     public void assignCollaborator(Task parentTask, Collaborator c) throws Exception {
-        if (!c.canTakeNewTask()) {
+        long currentOpenAssignments = repository.countOpenTasksForCollaborator(c);
+        if (currentOpenAssignments >= c.getCategory().getMaxOpenTasks()) {
             throw new Exception("Error: Collaborator " + c.getName() + " has reached their limit of " + c.getCategory().getMaxOpenTasks() + " open tasks.");
         }
 
@@ -35,8 +36,14 @@ public class TaskService {
 
         // Update the in-memory graph before saving so persistence captures all changes.
         parentTask.addSubtask(subtask);
-        c.setCurrentOpenTaskCount(c.getCurrentOpenTaskCount() + 1);
         repository.saveTask(subtask);
+    }
+
+    public List<Collaborator> listOverloadedCollaborators() {
+        return repository.getAllCollaborators().stream()
+                .filter(c -> repository.countOpenTasksForCollaborator(c) > c.getCategory().getMaxOpenTasks())
+                .sorted(Comparator.comparing(Collaborator::getName, String.CASE_INSENSITIVE_ORDER))
+                .collect(Collectors.toList());
     }
 
     // RULE: Search tasks by criteria, if none return all OPEN tasks sorted by due date

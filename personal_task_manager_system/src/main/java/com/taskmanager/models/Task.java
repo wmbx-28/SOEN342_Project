@@ -119,6 +119,9 @@ public class Task {
     }
 
     public void addSubtask(Task subtask) {
+        if (this.subtasks.size() >= 20) {
+            throw new IllegalStateException("Constraint Violation: A task cannot have more than 20 subtasks.");
+        }
         this.subtasks.add(subtask);
     }
 

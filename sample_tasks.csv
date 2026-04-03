@@ -1,8 +1,25 @@
 TaskName,Description,Subtask,Status,Priority,DueDate,ProjectName,Project Description,Collaborator,CollaboratorCategory
-Setup Environment,Install Java and Maven,No,COMPLETED,HIGH,2026-03-20,,,
+Setup Environment,Install Java and Maven,No,COMPLETED,HIGH,2026-03-20,,,,
 Design Database,Map out the PostgreSQL schema,No,OPEN,HIGH,2026-03-25,Drop-It Refactor,Migrate CRUD operations,,
-Write API Controllers,Implement backend endpoints,No,OPEN,MEDIUM,2026-03-27,Drop-It Refactor,Migrate CRUD operations,Alice,SENIOR
-Configure Server,Deploy the application to AWS,No,OPEN,HIGH,2026-03-28,Drop-It Refactor,Migrate CRUD operations,Alice,SENIOR
-Fix UI Bug,Fix button misalignment on login page,No,OPEN,LOW,2026-03-24,Tax Prep Site,Accountant document portal,Bob,JUNIOR
-Write Unit Tests,Add JUnit coverage for services,No,OPEN,MEDIUM,2026-03-29,Tax Prep Site,Accountant document portal,Bob,JUNIOR
-Create User Manual,Draft documentation for end users,No,OPEN,LOW,2026-04-05,,,Charlie,INTERMEDIATE
+Prepare Demo Script,Outline the final demo flow,No,OPEN,MEDIUM,2026-03-26,Release Prep,Demo and release materials,,
+Review Deployment Checklist,Double-check deployment steps,No,OPEN,LOW,2026-03-27,Release Prep,Demo and release materials,,
+Alice Backend Review 1,Review backend controller implementation,Yes,OPEN,MEDIUM,2026-03-28,Drop-It Refactor,Migrate CRUD operations,Alice,SENIOR
+Alice Backend Review 2,Review persistence wiring,Yes,OPEN,HIGH,2026-03-29,Drop-It Refactor,Migrate CRUD operations,Alice,SENIOR
+Alice Backend Review 3,Review export flow,Yes,OPEN,MEDIUM,2026-03-30,Drop-It Refactor,Migrate CRUD operations,Alice,SENIOR
+Charlie Docs Pass 1,Update onboarding instructions,Yes,OPEN,LOW,2026-04-01,Documentation Sprint,User-facing docs refresh,Charlie,INTERMEDIATE
+Charlie Docs Pass 2,Update install notes,Yes,OPEN,LOW,2026-04-02,Documentation Sprint,User-facing docs refresh,Charlie,INTERMEDIATE
+Charlie Docs Pass 3,Update testing guide,Yes,OPEN,MEDIUM,2026-04-03,Documentation Sprint,User-facing docs refresh,Charlie,INTERMEDIATE
+Charlie Docs Pass 4,Update release notes draft,Yes,OPEN,MEDIUM,2026-04-04,Documentation Sprint,User-facing docs refresh,Charlie,INTERMEDIATE
+Charlie Docs Pass 5,Update faq section,Yes,OPEN,LOW,2026-04-05,Documentation Sprint,User-facing docs refresh,Charlie,INTERMEDIATE
+Charlie Docs Pass 6,Update troubleshooting section,Yes,OPEN,LOW,2026-04-06,Documentation Sprint,User-facing docs refresh,Charlie,INTERMEDIATE
+Bob QA Sweep 1,Run UI regression sweep,Yes,OPEN,LOW,2026-04-07,Tax Prep Site,Accountant document portal,Bob,JUNIOR
+Bob QA Sweep 2,Verify CSV import rows,Yes,OPEN,LOW,2026-04-08,Tax Prep Site,Accountant document portal,Bob,JUNIOR
+Bob QA Sweep 3,Verify CSV export content,Yes,OPEN,LOW,2026-04-09,Tax Prep Site,Accountant document portal,Bob,JUNIOR
+Bob QA Sweep 4,Verify task search filters,Yes,OPEN,MEDIUM,2026-04-10,Tax Prep Site,Accountant document portal,Bob,JUNIOR
+Bob QA Sweep 5,Verify persistence reload,Yes,OPEN,MEDIUM,2026-04-11,Tax Prep Site,Accountant document portal,Bob,JUNIOR
+Bob QA Sweep 6,Verify due date sorting,Yes,OPEN,LOW,2026-04-12,Tax Prep Site,Accountant document portal,Bob,JUNIOR
+Bob QA Sweep 7,Verify collaborator limits,Yes,OPEN,HIGH,2026-04-13,Tax Prep Site,Accountant document portal,Bob,JUNIOR
+Bob QA Sweep 8,Verify overload menu output,Yes,OPEN,HIGH,2026-04-14,Tax Prep Site,Accountant document portal,Bob,JUNIOR
+Bob QA Sweep 9,Verify completed task filtering,Yes,OPEN,LOW,2026-04-15,Tax Prep Site,Accountant document portal,Bob,JUNIOR
+Bob QA Sweep 10,Verify no due date constraint message,Yes,OPEN,MEDIUM,2026-04-16,Tax Prep Site,Accountant document portal,Bob,JUNIOR
+Bob QA Sweep 11,Verify subtask constraint message,Yes,OPEN,MEDIUM,2026-04-17,Tax Prep Site,Accountant document portal,Bob,JUNIOR

@@ -20,6 +20,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
@@ -92,12 +93,35 @@ public class InMemoryRepository {
             throw new Exception("Constraint Violation: A task named '" + task.getTaskName() + "' on " + task.getDueDate() + " already exists.");
         }
 
+        if (task.getStatus() == TaskStatus.OPEN && task.getDueDate() == null && countOpenTasksWithoutDueDate() >= 50) {
+            throw new Exception("Constraint Violation: The system cannot have more than 50 open tasks without a due date.");
+        }
+
         allTasks.add(task);
         saveToDisk();
     }
 
     public List<Task> getAllTasks() {
         return allTasks;
+    }
+
+    public List<Collaborator> getAllCollaborators() {
+        recomputeCollaboratorCounts();
+        return Collections.unmodifiableList(new ArrayList<>(collaboratorsByName.values()));
+    }
+
+    public long countOpenTasksWithoutDueDate() {
+        return allTasks.stream()
+                .filter(task -> task.getStatus() == TaskStatus.OPEN && task.getDueDate() == null)
+                .count();
+    }
+
+    public long countOpenTasksForCollaborator(Collaborator collaborator) {
+        return allTasks.stream()
+                .filter(task -> task.getCollaborator() != null)
+                .filter(task -> task.getCollaborator().getId().equals(collaborator.getId()))
+                .filter(task -> task.getStatus() == TaskStatus.OPEN)
+                .count();
     }
 
     public void clearAll() {
